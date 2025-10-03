@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group Chat App 💬</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="chat-container">
+    <h1>Group Chat 💬</h1>
+
+    <!-- All chat messages will appear here -->
+    <div id="chat-box"></div>
+
+    <!-- Form to send new messages -->
+    <form id="chat-form">
+      <input type="text" id="name-input" placeholder="Your name (optional)" />
+      <input type="text" id="message-input" placeholder="Type a message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
