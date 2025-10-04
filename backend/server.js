@@ -1,6 +1,7 @@
 import WebSocket, { WebSocketServer } from 'ws'; // Import the WebSocket library
 
-const wss = new WebSocketServer({ port: 3000 }); // Create a new WebSocket server on port 3000
+const port = process.env.PORT || 3000;
+const wss = new WebSocketServer({ port }); // Create a new WebSocket server on port 3000
 console.log('WebSocket server is running on ws://localhost:3000');
 
 const clients = new Set(); // each client is a ws connection
@@ -18,13 +19,18 @@ wss.on('connection', (ws) => { // Listen for new connections
             const msg = JSON.parse(data); // this should be { name, text }
 
             if (msg.type === 'new-message' && typeof msg.text === 'string' && msg.text.trim() !== '') {
+                const now = new Date();
+                const time =    now.getHours().toString().padStart(2, "0") + ":" +
+                                now.getMinutes().toString().padStart(2, "0");
+                
                 // Valid new message
                 const message = {
                     id: Date.now(), // simple unique id based on timestamp
                     name: msg.name?.trim() || 'Anonymous',
                     text: msg.text,
                     likes: 0,
-                    dislikes: 0
+                    dislikes: 0,
+                    time // store the time the message was created
                 };
                 messages.push(message); // Store the new message
 

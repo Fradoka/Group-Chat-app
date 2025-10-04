@@ -50,6 +50,12 @@ body {
   color: #2b4eff;
 }
 
+.message .time {
+  color: #888;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
 /* Form Layout */
 #chat-form {
   display: flex;
