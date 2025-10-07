@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://localhost:3000'); // Connect to WebSocket server
+const socket = new WebSocket('https://fradoka-chat-app-backend.hosting.codeyourfuture.io/'); // Connect to WebSocket server
 
 const chatBox = document.getElementById('chat-box');
 const chatForm = document.getElementById('chat-form');
